@@ -1,0 +1,35 @@
+{% extends "master.html" %}
+
+{% block title %}
+   Restaurants
+{% endblock %}
+
+{% block extrahead %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+{% endblock %}
+
+{% block body %}
+<header>
+  <h1>Our Restaurants</h1>
+</header>
+
+<div class="restaurant-grid">
+  <div class="restaurant">
+    <img src="restaurant1.jpg" alt="Restaurant 1">
+    <h2>Restaurant 1</h2>
+  </div>
+
+  <div class="restaurant">
+    <img src="restaurant2.jpg" alt="Restaurant 2">
+    <h2>Restaurant 2</h2>
+  </div>
+
+  <div class="restaurant">
+    <img src="restaurant3.jpg" alt="Restaurant 3">
+    <h2>Restaurant 3</h2>
+  </div>
+
+  <!-- Add more restaurants as needed -->
+
+</div>
+{% endblock %}

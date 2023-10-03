@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}
+Food Items
+{% endblock %}
+{% block extrahead %}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+
+
+<link rel="stylesheet" href="{% static 'css/homestyle.css' %} ">
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="{% static 'css/swiper-bundle.min.css' %}" />
+
+{% endblock %}
+
+{% block body %}
+<div class="container">
+  <div class="row">
+    {% for food_item in food_items %}
+    <div class="col-md-4 mb-4">
+      <div class="card">
+        <img src="{{ food_item.image.url }}" class="card-img-top" alt="{{ food_item.name }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ food_item.name }}</h5>
+          <p class="card-text">{{ food_item.description }}</p>
+          <p class="card-text">Price: ${{ food_item.price }}</p>
+          <a href="#" class="btn btn-primary">Add to Cart</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

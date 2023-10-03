@@ -1,0 +1,58 @@
+{% extends "master.html" %}
+
+{% block title %}
+Food Items
+{% endblock %}
+
+{% load static %} {# Load the static tag library here #}
+
+{% block extrahead %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<link rel="stylesheet" href="{% static 'css/homestyle.css' %} ">
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="{% static 'css/swiper-bundle.min.css' %}" />
+{% endblock %}
+
+{% block body %}
+<div class="container">
+  <div class="row">
+   <h1>Food</h1>
+    <div class="col-md-4 mb-4">
+      <div class="card">
+        <img src="/static/image/chicken momo.jpg" class="card-img-top" alt=" Momo">
+        <div class="card-body">
+          <h5 class="card-title">Mo:Mo</h5>
+          <p class="card-text">Made with Chicken</p>
+          <p class="card-text">"Momo, a delightful Nepalese dumpling, is a beloved street food known for its delicious fillings and savory flavors."</p>
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="/static/image/chicken momo.jpg" class="card-img-top" alt=" Momo">
+          <div class="card-body">
+            <h5 class="card-title">Mo:Mo</h5>
+            <p class="card-text">Made with Chicken</p>
+            <p class="card-text">"Momo, a delightful Nepalese dumpling, is a beloved street food known for its delicious fillings and savory flavors."</p>
+            
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="/static/image/chowmein.jpg" class="card-img-top" alt=" Momo">
+          <div class="card-body">
+            <h5 class="card-title">Chowmein</h5>
+            <p class="card-text">Made with Noodles, Beef</p>
+            <p class="card-text">"Chow mein, a popular Chinese stir-fried noodle dish, combines a medley of vegetables, protein, and savory sauces for a flavorful and satisfying meal."</p>
+            
+          </div>
+        </div>
+      </div>
+   
+  </div>
+</div>
+{% endblock %}

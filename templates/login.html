@@ -1,0 +1,49 @@
+{% extends 'master.html' %}
+
+   {% block title %}
+Login
+      {% endblock %}
+
+      <!-- This is the link rakhney thau -->
+   {% load static %}
+      {% block extrahead %}
+      <link rel="stylesheet" href="{% static 'css/loginstyle.css' %} ">
+      
+      
+   
+
+
+      {% endblock %}
+
+{% block body %}
+<body>
+   
+   <form method="post">
+      <h2>Welcome to Foodieopia 🍔</h2>
+       <h3>Login Here</h3>
+       {% csrf_token %} 
+       <label for="username">Username</label>
+       <input type="text" placeholder="Enter Username" id="username" name="username">
+
+       <label for="password">Password</label>
+       <input type="password" placeholder="Password" id="password" name="pass">
+
+       <button type="submit">Log In</button>
+       <!-- <input type="button" value=""> -->
+       <!-- <div class="social">
+         <div class="go"><i class="fab fa-google"></i>  Google</div>
+         <div class="fb"><i class="fab fa-facebook"></i>  Facebook</div>
+       </div> -->
+       <a href="{% url 'signup' %}" >Create a account</a>
+   </form>
+</body>
+{% endblock %}
+
+{% block js %}
+
+ 
+
+
+
+
+{% endblock %}

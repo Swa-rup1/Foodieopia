@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product-Details</title>
+    <link rel="shortcut icon" href="/bonfire.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/static/css/shop.css" />
+    <script
+      src="https://kit.fontawesome.com/32af3d915c.js"
+      crossorigin="anonymous"
+    ></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Toastr -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"
+    ></script>
+    <script>
+      // Configure Toastr options
+
+      toastr.options = {
+        closeButton: true,
+        timeOut: 3000,
+        positionClass = "toast-top-left"
+      };
+    </script>
+  </head>
+
+  <body>
+    <section id="header">
+      <a href="#"
+        ><img src="/bonfire.png" class="logo" style="height: 50px" alt=""
+      /></a>
+
+      <div>
+        <ul id="navbar">
+          <li><a href="{% url 'home' %}" class="custom-button">Home</a></li>
+          <li><a href="{% url 'shop' %}" class=" custom-button active">Shop</a></li>
+          <li><a href="{% url 'about' %}" class="custom-button" >About</a></li>
+          
+          <li id="lg-bag">
+            <a href="../../cart"><i class="fa-solid fa-cart-shopping"></i></a>
+          </li>
+          <a href="#" id="close"><i class="fa-solid fa-xmark"></i></a>
+        </ul>
+      </div>
+      <div id="mobile">
+        <a href="cart"><i class="fa-solid fa-cart-shopping"></i></a>
+        <i id="bar" class="fas fa-outdent"></i>
+      </div>
+    </section>
+    <section id="prodetails" class="section-p1">
+      <div class="single-pro-image">
+        <img
+        src=http://localhost:8000/media/{{collection_detail.collection_image}}
+        width="100%" id="MainImg" alt="" />
+        <div class="small-img-group">
+          <div class="small-img-col"></div>
+          <div class="small-img-col"></div>
+          <div class="small-img-col"></div>
+        </div>
+      </div>
+
+      <div class="single-pro-details">
+        <h6>Product related to:</h6>
+        <h4>{{collection_detail.collection_name}}</h4>
+
+        <h4>Product Details</h4>
+        <span
+          >The mentioned products are all from the local vendors promoting local
+          level business.</span
+        >
+        <br />
+        {%for item in items%}
+        <div class="pooja_main_div">
+          <div class="products_pooja">
+            <img src=http://localhost:8000/media/{{item.item_image}} alt=""
+            class="saman" />
+            <div class="saman_details">
+              <p class="aclass">{{item.item_name}}</p>
+              <p class="bclass">Rs. {{item.item_price }}</p>
+              <button class="add_to_cart_btn" id="add-to-cart-{{item.id}}">
+                Add To Cart
+              </button>
+              <button class="minus-btn" id="minus-{{item.id}}">-</button>
+              <!-- <span> {{item.item_quantity}} </span> -->
+              <span id="value-div-{{item.id}}" class="numbers-span">0</span>
+              <button class="plus-btn" id="plus-{{item.id}}">+</button>
+            </div>
+          </div>
+          {% endfor%}
+        </div>
+      </div>
+    </section>
+
+    
+    <footer class="section-p1">
+      <div class="col">
+        <img src="/bonfire.png" height="60px" alt="" />
+        <h4>Contact</h4>
+        <p><strong>Address: </strong>Shiphal,Kathmandu,Nepal</p>
+        <p><strong>Phone: </strong>+977 9803058344</p>
+        <p><strong>Hours: </strong>9:00 19:00 Sun - Sat</p>
+        <div class="follow">
+          <h4>Follow Us</h4>
+          <div class="icon">
+            <i class="fab fa-facebook"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-whatsapp"></i>
+            <i class="fab fa-viber"></i>
+          </div>
+        </div>
+      </div>
+      {% comment %} <div class="col">
+        <h4>About</h4>
+        <a href="#">About Us</a>
+        <a href="#">Delivery Information</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Conditions</a>
+        <a href="#">Contact Us</a>
+      </div> {% endcomment %}
+      <div class="col">
+        <h4>My Account</h4>
+        <a href="login">login</a>
+        <a href="signup">Signup</a>
+        <a href="logout">logout</a>
+        <!-- <a href="#">View Cart</a>
+        <a href="#">My Wishlist</a>
+        <a href="#">Track My Order</a>
+        <a href="#">Help</a> -->
+      </div>
+      <div class="col install">
+        <h4>Payment Gateways</h4>
+        <p>secured Payment option</p>
+        <img src="/esewa_logo.png" height="20px" width="60px" alt="" />
+        <img src="/khalti-logo.svg" height="20px" width="60px" alt="" />
+      </div>
+      <div class="copyright">
+        <p>&copy;2023 , Sachit Ghimire - Festive-All</p>
+      </div>
+    </footer>
+
+    <script>
+      var MainImg = document.getElementById("MainImg");
+      var smallimg = document.getElementsByClassName("small-img");
+
+      smallimg[0].onclick = function () {
+        MainImg.src = smallimg[0].src;
+      };
+      smallimg[1].onclick = function () {
+        MainImg.src = smallimg[1].src;
+      };
+      smallimg[2].onclick = function () {
+        MainImg.src = smallimg[2].src;
+      };
+      smallimg[3].onclick = function () {
+        MainImg.src = smallimg[3].src;
+      };
+    </script>
+
+    <script>
+          {% for item in items %}
+  document.getElementById("plus-{{item.id}}").addEventListener("click", () => {
+    let value = parseFloat(document.getElementById("value-div-{{item.id}}").innerHTML);
+    value = (value * 10 + 5) / 10; // Increase by 0.5
+    document.getElementById("value-div-{{item.id}}").innerHTML = value.toFixed(1);
+  });
+
+  document.getElementById("minus-{{item.id}}").addEventListener("click", () => {
+    let value = parseFloat(document.getElementById("value-div-{{item.id}}").innerHTML);
+    value = (value * 10 - 5) / 10; // Decrease by 0.5
+    if (value < 0) {
+      value = 0.0;
+    }
+    document.getElementById("value-div-{{item.id}}").innerHTML = value.toFixed(1);
+  });
+{% endfor %}
+
+
+     
+    </script>
+    <script>
+
+
+      {% for item in items%}
+      document
+        .getElementById("add-to-cart-{{item.id}}")
+        .addEventListener("click", () => {
+          const quantity = parseInt( document.getElementById("value-div-{{item.id}}").innerHTML);
+          if(quantity>0){
+            var url = "../../add_to_cart/" +{{collection_detail.id}} + "/"+ {{item.id}}+"/"+ parseInt( document.getElementById("value-div-{{item.id}}").innerHTML)+"/"+{{item.item_price}}
+            window.location.href=url
+          }
+          else{
+            toastr.warning("Must select at least one item")
+          }
+
+
+
+
+        });
+        {% endfor%}
+    </script>
+    <script src="script.js"></script>
+    <script>
+      {% if messages%}
+      {%for message in messages%}
+      toastr.{{message.tags}}("{{message}}")
+      {%endfor%}
+      {%endif%}
+    </script>
+  </body>
+</html>

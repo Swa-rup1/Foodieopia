@@ -1,0 +1,176 @@
+{% extends 'master.html' %}
+
+   {% block title %}
+      Shop
+    {% endblock %}
+
+      <!-- This is the link rakhney thau -->
+   {% load static %}
+  {% block extrahead %}
+    <link rel="stylesheet" href="/static/css/shop.css" />
+    <link rel="shortcut icon" href="/bonfire.png" type="image/x-icon" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Toastr -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"
+    ></script>
+    <script>
+      // Configure Toastr options
+
+      toastr.options = {
+        closeButton: true, timeOut: 3000, positionClass : "toast-top-right"};
+    </script>
+
+    <script
+      src="https://kit.fontawesome.com/32af3d915c.js"
+      crossorigin="anonymous"
+    ></script>
+
+  {% endblock %}
+
+    {% block body %}
+
+      <div class="position-fixed top-0 end-0 p-3" style="z-index: 11">
+        <div id="toast-container" class="toast-container"></div>
+      </div>
+      <p>{{details}}</p>
+      <section id="header">
+        <a href="#"
+          ><img src="/{{bonfire.png}}"} class="logo" style="height: 50px" alt=""
+        /></a>
+  
+        <div>
+          <ul id="navbar">
+            <li><a href="{% url 'home' %}"  class="custom-button">Home</a></li>
+            <li><a href="{% url 'shop' %}" class="custom-button active">Shop</a></li>
+            
+            <li><a href="{% url 'about' %}" class="custom-button">About</a></li>
+            
+            <li id="lg-bag">
+              <a href="{% url 'cart' %}"><i class=" custom-button fa-solid fa-cart-shopping"></i></a>
+            </li>
+            <a href="#" id="close"><i class="fa-solid fa-xmark"></i></a>
+          </ul>
+        </div>
+        <div id="mobile">
+          <a href="cart"><i class="fa-solid fa-cart-shopping"></i></a>
+          <i id="bar" class="fas fa-outdent"></i>
+        </div>
+      </section> 
+        <div id="page-header">
+          <h2 class="ab">All Festival related products here</h2>
+          <p class="ab">"Embrace Festive Cheer With Us."</p>
+        </div>
+      </div>
+  
+      
+  
+      <section id="product1" class="section-p1">
+      
+        <div class="pro-container">
+          
+          {% for Collection in collections %}
+          <div class="pro">
+            <img src=http://localhost:8000/media/{{Collection.collection_image}} >
+            <div class="des">
+              <span>Festive-All</span>
+              <h5>{{Collection.collection_name}}</h5>
+              <h4>{{Collection.collection_price}}</h4>
+            </div>
+            <a href="product_details/{{Collection.id}}"><i class="fa-solid fa-cart-shopping"></i></a>
+          </div>
+          {% endfor %}
+    
+        </div>
+      </section>
+     
+      <!-- <section id="pagination" class="section-p1">
+          <a href="">1</a>
+          <a href="">1</a>
+          <a href="">1</a>
+      </section> -->
+      
+      {% comment %} <section id="newsletter" class="section-p1">
+        <div class="newstext">
+          <h4>Get Notified</h4>
+          <p>
+            Get E-mail updates about our latest and <span>Special offers</span>
+          </p>
+        </div>
+        <div class="form">
+          <input type="text" placeholder="Your Email Address" name="" id="" />
+          <button class="normal">Sign UP</button>
+        </div>
+      </section> {% endcomment %}
+      <footer class="section-p1">
+        <div class="col">
+          <img src="/static/img/bonfire.png" height="60px" alt="" />
+          <h4>Contact</h4>
+          <p><strong>Address: </strong>Shiphal,Kathmandu,Nepal</p>
+          <p><strong>Phone: </strong>+977 9803058344</p>
+          <p><strong>Hours: </strong>9:00 19:00 Sun - Sat</p>
+          <div class="follow">
+            <h4>Follow Us</h4>
+            <div class="icon">
+              <i class="fab fa-facebook"></i>
+              <i class="fab fa-instagram"></i>
+              <i class="fab fa-twitter"></i>
+              <i class="fab fa-whatsapp"></i>
+              <i class="fab fa-viber"></i>
+            </div>
+          </div>
+        </div>
+        {% comment %} <div class="col">
+          <h4>About</h4>
+          <a href="#">About Us</a>
+          <a href="#">Delivery Information</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Conditions</a>
+          <a href="#">Contact Us</a>
+        </div> {% endcomment %}
+        <div class="col">
+          <h4>My Account</h4>
+          <a href="login">login</a>
+          <a href="signup">Signup</a>
+          <a href="logout">logout</a>
+          <!-- <a href="#">View Cart</a>
+          <a href="#">My Wishlist</a>
+          <a href="#">Track My Order</a>
+          <a href="#">Help</a> -->
+        </div>
+        {% comment %} <div class="col install">
+          <h4>Payment Gateways</h4>
+          <p>secured Payment option</p>
+          <img src="/esewa_logo.png" height="20px" width="60px" alt="" />
+          <img src="/khalti-logo.svg" height="20px" width="60px" alt="" />
+        </div> {% endcomment %}
+        <div class="copyright">
+          <p>&copy;2023 , Sachit Ghimire - Festive-All</p>
+        </div>
+      </footer>
+
+      {% block js %}
+        <!-- <script src="script.js"></script> -->
+        <script>
+          {% if messages%}
+          {%for message in messages%}
+          toastr.{{message.tags}}("{{message}}")
+          {%endfor%}
+          {%endif%}
+        </script>  
+
+
+       {% endblock %}
+      
+    {% endblock %}
+
+
+    
+ 
+
