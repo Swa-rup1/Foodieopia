@@ -4,19 +4,19 @@ function navigateToAnotherPage1() {
 }
 
 function navigateToAnotherPage2() {
-    window.location.href = '/home/Localvariety.html ';
+    window.location.href = '/home/localvariety';
 }
 
 function navigateToAnotherPage3() {
-    window.location.href = '/home/combovariety.html';
+    window.location.href = '/home/combovariety';
 }
 
 function navigateToAnotherPage4() {
-    window.location.href = '/home/saladvariety.html';
+    window.location.href = '/home/saladvariety';
 }
 
 function navigateToAnotherPage5() {
-    window.location.href = '/home/grovariety.html';
+    window.location.href = '/home/grovariety';
 }
 
 

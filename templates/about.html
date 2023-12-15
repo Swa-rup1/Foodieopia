@@ -5,10 +5,65 @@
 {% endblock %}
 
 {% block extrahead %}
-  <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/static/css/about.css"> 
+  <link rel="stylesheet" href="/static/css/homestyle.css">
+  <!-- Link to your CSS file -->
 {% endblock %}
 
 {% block body %}
+<header>
+  <nav class="navbar navbar-expand-lg ">
+      <div class="container-fluid">
+        <!-- Logo -->
+        <a class="navbar-brand" href="#">
+          <img src="/static/image/FoodieopiaLog.svg" class="logo" alt="Logo">
+        </a>
+    
+        <!-- Toggler Button on Right Always -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+    
+        <!-- Navbar Links -->
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" href="{% url 'home' %}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'shop' %}">Shop</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'about' %}">About</a>
+            </li>
+            
+            <!-- Login and Logout Links - Displayed in Collapsed Menu on Small Screens -->
+            <li class="nav-item d-lg-none"> <!-- Display only on small screens -->
+              <a href="{% url 'login' %}" class="nav-link">Login</a>
+            </li>
+            <li class="nav-item d-lg-none"> <!-- Display only on small screens -->
+              <a href="{% url 'user_logout' %}" class="nav-link">Logout</a>
+            </li>
+          </ul>
+        </div>
+    
+        <!-- Buttons - Hidden on Small Screens -->
+        <div class="d-none d-lg-block">
+          <button class="b"> <a href="{% url 'login' %}" class="nav-btn-in"><i class="fas fa-sign-in-alt"></i> Login</a> </button>
+          <button class="b"><a href="{% url 'user_logout' %}" class="nav-btn-out"><i class="fas fa-times-circle"></i>Logout</a></button>
+        </div>
+      </div>
+  </nav>
+
+<!-- <div class="right-shape">
+              
+</div> -->
+
+</header>   
+
   <header>
     <h1>About Foodieopia</h1>
   </header>
@@ -26,4 +81,75 @@
       At Foodieopia, we are on a mission to make food ordering convenient and enjoyable for everyone. We connect food lovers with the best restaurants in town, ensuring a seamless dining experience.
     </p>
   </section>
+
+          
+                  <!-- FOOTER STARTS HERE -->
+                	<!-- footer section start -->
+                  <footer id="footer">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-md-3">
+                                      <a class="navbar-brand" href="#">
+                                          <img src="/static/image/FoodieopiaLog.svg" class="logo" alt="Logo">
+                                        </a>
+                                    <div class="footer-about">
+                                        <p>"Foodieopia: Your ultimate destination for seamless and delightful food ordering experiences." </p>
+                                    </div>
+              
+                        </div>
+                        <div class="col-md-3">
+                          <div class="useful-link">
+                            <h2>Links</h2>
+                            
+                            <div class="use-links">
+                                              <li><a href="{% url 'home' %}"   class="f">Home</a></li>
+                                              <li><a href="{% url 'shop' %}"  class="f" >Shop</a></li>
+                                              
+                                              <li><a href="{% url 'about' %}"  class="f" >About</a></li>
+                                              <li><a href="{% url 'login' %}" class="nav-btn-in f"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                            
+                                              <li><a href="{% url 'user_logout' %}" class="nav-btn-out f"><i class="fas fa-times-circle"></i>Logout</a></li>
+                            </div>
+                          </div>
+              
+                        </div>
+                                  <div class="col-md-3">
+                                      <div class="social-links">
+                            <h2>Follow Us</h2>
+                            <img src="./assets/images/about/home_line.png" alt="">
+                            <div class="social-icons">
+                              <li><a href=""  class="f"><i class="fa-brands fab fa-facebook-f"></i> Facebook</a></li>
+                              <li><a href=""  class="f"><i class="fa-brands fab fa-instagram"></i> Instagram</a></li>
+                              <li><a href=""  class="f"><i class="fa-brands fab fa-linkedin"></i> Linkedin</a></li>
+                            </div>
+                          </div>
+                                  
+              
+                                  </div>
+                        <div class="col-md-3">
+                          <div class="address">
+                            <h2>Address</h2>
+                            <img src="./assets/images/about/home_line.png" alt="" class="img-fluid">
+                            <div class="address-links">
+                              <li class="address1"><i class="fa-solid fa-location-dot f"></i>Mitrapark, Ring Rd, Kathmandu 44600</li>
+                                 <li><a href="" class="f"><i class="fa-solid fa-phone f"></i> +988 *******</a></li>
+                                 <li><a href="" class="f"><i class="fa-solid fa-envelope f"></i> foodieopia024@gmail..com</a></li>
+                            </div>
+                          </div>
+                        </div>
+                                
+                      </div>
+                    </div>
+              
+                  </footer>
+                  
+                  <section id="copy-right">
+                    <div class="copy-right-sec"><i class="fa-solid fa-copyright"></i>  
+                      Copyright <a href="#">FOODIEOPIA</a> All rights reserved.  
+              
+              
+                    </div>
+              
+                  </section>
+                
 {% endblock %}

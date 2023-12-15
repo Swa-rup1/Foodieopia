@@ -1,7 +1,6 @@
 
 
 
-
 from django.shortcuts import get_object_or_404, render,HttpResponse,redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
@@ -37,7 +36,7 @@ def search_food_categories(request):
 
 
 # HomePage, SignUp, SignIn Views
-@login_required(login_url='login')
+# @login_required(login_url='login')
 def HomePage(request):
     return render (request,'home.html')
 
@@ -186,24 +185,18 @@ def delete_cart(request, cart_id):
 
     return redirect("cart")
 
-def cart_view(request):
-    cart_item = get_object_or_404(CartItem, user=request.user, item_id=item_id)
+# Varities View
+def fastvariety(request):
+    return render (request,'fastvariety.html')
 
+def  localvariety(request):
+    return render (request,'Localvariety.html')
 
-# def logout(request):
-#     try:
-#         del request.session['person']
-#         del request.session['person-id']
-#         messages.success(request,"logout success")
-#         return redirect('login')
-        
-#     except:
-#        messages.error(request,"logout failed")
-       
-#     return redirect('login')
+def grovariety(request):
+    return render (request,'grovariety.html')
 
+def combovariety(request):
+    return render (request,'combovariety.html')
 
-
-# views.py
-
-
+def saladvariety(request):
+    return render (request,'saladvariety.html')

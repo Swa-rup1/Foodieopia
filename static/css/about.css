@@ -9,16 +9,16 @@ p {
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  color: #333;
+  background-color: #faad80;
+  color: #222;
   line-height: 1.6;
   margin: 0;
   padding: 0;
 }
 
 header {
-  background-color: #333;
-  color: #fff;
+  background-color: transparent;
+  color: #222;
   text-align: center;
   padding: 1rem 0;
 }
@@ -31,7 +31,7 @@ h1 {
   max-width: 800px;
   margin: 2rem auto;
   padding: 1rem;
-  background-color: #fff;
+  background-color: transparent;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
@@ -46,5 +46,4 @@ p {
   margin-bottom: 1rem;
 }
 
-/* Add more custom styles as needed */
 

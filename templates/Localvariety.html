@@ -1,37 +1,75 @@
-{% extends "base.html" %}
-
-{% block title %}
-Food Items
-{% endblock %}
-
-{% block extrahead %}
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
-
-
-<link rel="stylesheet" href="{% static 'css/homestyle.css' %} ">
-<!-- Swiper CSS -->
-<link rel="stylesheet" href="{% static 'css/swiper-bundle.min.css' %}" />
-
-{% endblock %}
-
-{% block body %}
-<div class="container">
-  <div class="row">
-    {% for food_item in food_items %}
-    <div class="col-md-4 mb-4">
-      <div class="card">
-        <img src="{{ food_item.image.url }}" class="card-img-top" alt="{{ food_item.name }}">
-        <div class="card-body">
-          <h5 class="card-title">{{ food_item.name }}</h5>
-          <p class="card-text">{{ food_item.description }}</p>
-          <p class="card-text">Price: ${{ food_item.price }}</p>
-          <a href="#" class="btn btn-primary">Add to Cart</a>
-        </div>
-      </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/css/homestyle.css">
+  <title>LocalVariety</title>
+</head>
+<body>
+  
+  
+  <div class="menu">
+    <div class="heading">
+        
+        <h3>&mdash; LocalVariety Categories &mdash; </h3>
     </div>
-    {% endfor %}
-  </div>
-</div>
-{% endblock %}
+
+    <div class="food-items">
+        <img src="/static/image/burgermenu.jpg">
+        <div class="details">
+            <div class="details-sub">
+                <h5>Buff burger</h5>
+                <h5 class="price"> RS. 250 </h5>
+            </div>
+            <p>Deliciously juicy burger piled high with fresh lettuce, ripe tomatoes, sizzling bacon, and melted cheese, all tucked between a toasted golden bun.</p>
+            <!-- <button>Add To Cart</button> -->
+        </div>
+    </div>
+
+    <div class="food-items">
+        <img src="/static/image/chowmein.jpg">
+        <div class="details">
+            <div class="details-sub">
+                <h5>Buff Chowmein</h5>
+                <h5 class="price"> Rs 100 </h5>
+            </div>
+            <p>Savor the stir-fried delight of tender noodles, vibrant veggies, and savory sauces in our irresistible Chow Mein</p>
+            <!-- <button>Add To Cart</button> -->
+        </div>
+    </div>
+
+    <div class="food-items">
+        <img src="/static/image/Khanaset.jpg">
+        <div class="details">
+            <div class="details-sub">
+                <h5>Khanaset</h5>
+                <h5 class="price"> RS 150 </h5>
+            </div>
+            <p>Experience a wholesome meal with our Khana Set, featuring a delightful combination of curry, rice, vegetables, and more</p>
+            <!-- <button>Add To Cart</button> -->
+        </div>
+    </div>
+
+    <div class="food-items">
+        <img src="/static/image/keema.jpg">
+        <div class="details">
+            <div class="details-sub">
+                <h5>Keema Noodles</h5>
+                <h5 class="price"> Rs120 </h5>
+            </div>
+            <p>Indulge in the perfect blend of spicy keema and flavorful noodles, a taste explosion in every bite, enhanced with our zesty soya sauce for an extra spicy and yummy kick!</p>
+            <!-- <button>Add To Cart</button> -->
+        </div>
+    </div>
+</div> 
+
+
+
+
+        <script src="/static/js/homescript.js"></script>
+        <script src="/static/js/varietyscript.js"></script>
+        <script src="/static/js/swiper-bundle.min.js"></script>
+
+</body>
+</html>

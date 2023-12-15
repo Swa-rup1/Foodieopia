@@ -1,0 +1,69 @@
+<div class="navbar">
+    <header class="">
+      <a href="/" class="d-flex  col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+      </a>
+
+      <ul class="nav col-4 col-md-auto mb-2 mb-md-0">
+        <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">Features</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">Pricing</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">FAQs</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">About</a></li>
+      </ul>
+
+      <div class="col-md-3 text-end">
+        <button type="button" class="btn btn-outline-primary me-2">Login</button>
+        <button type="button" class="btn btn-primary">Sign-up</button>
+      </div>
+    </header>
+  </div>
+
+
+  <nav class="navbar">
+    <div class="navbar-container ">
+        <div class="nav-logo">
+            <img src="/static/image/FoodieopiaLog.svg"  class="logo"> 
+        </div>
+        
+        <!-- <a target="_blank" href="https://icons8.com/icon/131/search">Search</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> -->
+        <!-- <div class="searchbox">
+            <input type="search" name="search" id="search" placeholder="Taste something yummy and delicious today."> <i class="fa-solid fa-magnifying-glass icsearch"></i>   
+            
+        </div> -->
+
+        <ul id="navmenu">
+            <li><a href="{% url 'home' %}" >Home</a></li>
+            <li><a href="{% url 'shop' %}">Shop</a></li>
+            <li><a href="{% url 'about' %}" >About</a></li>
+            
+            <li><a href="{% url 'user_logout' %}" >Logout</a></li>
+            <li id="lg-bag">
+                <a href="../../cart"><i class="fa-solid fa-cart-shopping"></i></a>
+            </li>
+            <a href="#" id="close"><i class="fa-solid fa-xmark"></i></a>
+        </ul>
+
+        
+        
+    
+    </div>
+    
+    <!-- <!-- <div class="navbar-container2"> -->
+        
+
+        <!-- <div id="mobile">
+            <a href="cart"><i class="fa-solid fa-cart-shopping"></i></a>
+            <i id="bar" class="fas fa-outdent"></i>
+        </div> -->
+       
+       
+        
+      
+            <!-- <div class="faicon">
+                <i class="fa fa-heart heart icon"></i>
+                <i class="fa fa-user  icon"></i>
+                
+            </div>   -->
+    <!-- </div> -->
+</nav>   
