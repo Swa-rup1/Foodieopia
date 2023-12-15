@@ -34,120 +34,201 @@
   </head>
 
   <body>
-    <section id="header">
-      <a href="#"
-        ><img src="/bonfire.png" class="logo" style="height: 50px" alt=""
-      /></a>
+    <div class="color">
+          <section id="header">
+            <a class="navbar-brand" href="#">
+              <img src="/static/image/FoodieopiaLog.svg" class="logo" alt="Logo">
+            </a>
 
-      <div>
-        <ul id="navbar">
-          <li><a href="{% url 'home' %}" class="custom-button">Home</a></li>
-          <li><a href="{% url 'shop' %}" class=" custom-button active">Shop</a></li>
-          <li><a href="{% url 'about' %}" class="custom-button" >About</a></li>
-          
-          <li id="lg-bag">
-            <a href="../../cart"><i class="fa-solid fa-cart-shopping"></i></a>
-          </li>
-          <a href="#" id="close"><i class="fa-solid fa-xmark"></i></a>
-        </ul>
-      </div>
-      <div id="mobile">
-        <a href="cart"><i class="fa-solid fa-cart-shopping"></i></a>
-        <i id="bar" class="fas fa-outdent"></i>
-      </div>
-    </section>
-    <section id="prodetails" class="section-p1">
-      <div class="single-pro-image">
-        <img
-        src=http://localhost:8000/media/{{collection_detail.collection_image}}
-        width="100%" id="MainImg" alt="" />
-        <div class="small-img-group">
-          <div class="small-img-col"></div>
-          <div class="small-img-col"></div>
-          <div class="small-img-col"></div>
-        </div>
-      </div>
-
-      <div class="single-pro-details">
-        <h6>Product related to:</h6>
-        <h4>{{collection_detail.collection_name}}</h4>
-
-        <h4>Product Details</h4>
-        <span
-          >The mentioned products are all from the local vendors promoting local
-          level business.</span
-        >
-        <br />
-        {%for item in items%}
-        <div class="pooja_main_div">
-          <div class="products_pooja">
-            <img src=http://localhost:8000/media/{{item.item_image}} alt=""
-            class="saman" />
-            <div class="saman_details">
-              <p class="aclass">{{item.item_name}}</p>
-              <p class="bclass">Rs. {{item.item_price }}</p>
-              <button class="add_to_cart_btn" id="add-to-cart-{{item.id}}">
-                Add To Cart
-              </button>
-              <button class="minus-btn" id="minus-{{item.id}}">-</button>
-              <!-- <span> {{item.item_quantity}} </span> -->
-              <span id="value-div-{{item.id}}" class="numbers-span">0</span>
-              <button class="plus-btn" id="plus-{{item.id}}">+</button>
+            <div>
+              <ul id="navbar">
+                <li><a href="{% url 'home' %}" >Home</a></li>
+                <li><a href="{% url 'shop' %}">Shop</a></li>
+                <li><a href="{% url 'about' %}"  >About</a><li>
+                
+                <li id="lg-bag">
+                  <a href="../../cart"><i class="fa-solid fa-cart-shopping"></i></a>
+                </li>
+                <a href="#" id="close"><i class="fa-solid fa-xmark"></i></a>
+              </ul>
             </div>
-          </div>
-          {% endfor%}
-        </div>
-      </div>
-    </section>
+            <div id="mobile">
+              <a href="../../cart"><i class="fa-solid fa-cart-shopping"></i></a>
+              <i id="bar" class="fas fa-outdent"></i>
+            </div>
+          </section>
+          <section id="prodetails" class="section-p1">
+            <div class="single-pro-image">
+              <img
+              src=http://localhost:8000/media/{{collection_detail.collection_image}}
+              width="100%" id="MainImg" alt="" />
+              <div class="small-img-group">
+                <div class="small-img-col"></div>
+                <div class="small-img-col"></div>
+                <div class="small-img-col"></div>
+              </div>
+            </div>
 
+            <div class="single-pro-details">
+              <h6>Product related to:</h6>
+              <h4>{{collection_detail.collection_name}}</h4>
+
+              <h4>Product Details</h4>
+              <span
+                >Fresh & Tasty</span
+              >
+              <br />
+
+
+              {%for item in items%}
+               <div class="pooja_main_div"> <!-- pooja_main_div to food_div -->
+                <div class=" food_list">  <!-- products_pooja to food_list -->
+                  <img src=http://localhost:8000/media/{{item.item_image}} alt=""
+                  class="khana" /> <!-- saman to khana   saman_details to khana_details -->
+                  <div class="khana_details">
+                    <p class="aclass">{{item.item_name}}</p>
+                    <p class="bclass">Rs. {{item.item_price }}</p>
+                    <button class="add_to_cart_btn" id="add-to-cart-{{item.id}}">
+                      Add To Cart
+                    </button>
+                    <button class="minus-btn" id="minus-{{item.id}}">-</button>
+                    <!-- <span> {{item.item_quantity}} </span> -->
+                    <span id="value-div-{{item.id}}" class="numbers-span">0</span>
+                    <button class="plus-btn" id="plus-{{item.id}}">+</button>
+                  </div>
+                </div>
+                {% endfor%}
+              </div>
+            </div>
+          </section>
+
+          
+                
+              <!-- Testimonials -->
+            
+
+              <div class="brands">
+                  <p class="brand"><span>Restraunt</span></p>
+                  <p class="brand-policy">We have one of the<br>best Restraunt who offers best food</p>
     
-    <footer class="section-p1">
-      <div class="col">
-        <img src="/bonfire.png" height="60px" alt="" />
-        <h4>Contact</h4>
-        <p><strong>Address: </strong>Shiphal,Kathmandu,Nepal</p>
-        <p><strong>Phone: </strong>+977 9803058344</p>
-        <p><strong>Hours: </strong>9:00 19:00 Sun - Sat</p>
-        <div class="follow">
-          <h4>Follow Us</h4>
-          <div class="icon">
-            <i class="fab fa-facebook"></i>
-            <i class="fab fa-instagram"></i>
-            <i class="fab fa-twitter"></i>
-            <i class="fab fa-whatsapp"></i>
-            <i class="fab fa-viber"></i>
-          </div>
-        </div>
-      </div>
-      {% comment %} <div class="col">
-        <h4>About</h4>
-        <a href="#">About Us</a>
-        <a href="#">Delivery Information</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms & Conditions</a>
-        <a href="#">Contact Us</a>
-      </div> {% endcomment %}
-      <div class="col">
-        <h4>My Account</h4>
-        <a href="login">login</a>
-        <a href="signup">Signup</a>
-        <a href="logout">logout</a>
-        <!-- <a href="#">View Cart</a>
-        <a href="#">My Wishlist</a>
-        <a href="#">Track My Order</a>
-        <a href="#">Help</a> -->
-      </div>
-      <div class="col install">
-        <h4>Payment Gateways</h4>
-        <p>secured Payment option</p>
-        <img src="/esewa_logo.png" height="20px" width="60px" alt="" />
-        <img src="/khalti-logo.svg" height="20px" width="60px" alt="" />
-      </div>
-      <div class="copyright">
-        <p>&copy;2023 , Sachit Ghimire - Festive-All</p>
-      </div>
-    </footer>
+                  <div class="slider">
+                      <div class="slider-items">
+                          <div class="slide">
+                              <a class="brand-logo" href="https://www.trisaranepal.com/">
+                                  <img class="brand-img" alt="trisara" src="/static/image/trisara.png">
+                              </a>
+                          </div>
+                          <div class="slide">
+                              <a class="brand-logo" href="https://lesherpa.com.np/">
+                                  <img class="brand-img  "  alt="Le Sherpa" src="/static/image/lesherpa.png">
+                              </a>
+                          </div>
+                          <div class="slide">
+                              <a class="brand-logo" href="https://www.instagram.com/baskinrobbinsnepal/?hl=en">
+                                  <img class="brand-img" alt="Baskin robbins" src="/static/image/baskin.png">
+                              </a>
+                          </div>
+    
+                          <div class="slide">
+                                <a class="brand-logo" href="https://jimbuthakali.com/">
+                                    <img class="brand-img" alt="Jimbu" src="/static/image/jimbu.png">
+                                </a>
+                          </div>
+    
+                            <!-- <div class="slide">
+                                <a class="brand-logo" href="https://www.instagram.com/baskinrobbinsnepal/?hl=en">
+                                    <img class="brand-img" alt="Baskin robbins" src="/static/image/baskin.png">
+                                </a>
+                            </div> -->
+    
+                            <div class="slide">
+                                <a class="brand-logo" href="https://www.instagram.com/achaarghar/">
+                                    <img class="brand-img" alt="Achar-Ghar" src="/static/image/achar.png">
+                                </a>
+                            </div>
+                          <div class="slide">
+                              <a class="brand-logo" href="https://theburgerhouse.com.np/">
+                                  <img class="brand-img kantipur" alt="Burger-house" src=" /static/image/burgerhouse.png" >
+                              </a>
+                          </div>
+                          <div class="slide">
+                              <a class="brand-logo" href="https://www.instagram.com/hankooksarangkoreanrestaurant/?hl=en">
+                                  <img class="brand-img" alt="Hankok-Sarang" src="/static/image/hankok.png">
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+    
+                  
+                  
+                  
+                  
+                
+                  
+              </div>
+            
 
+        
+              <!-- FOOTER STARTS HERE -->
+            
+                <footer id="footer">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-md-3">
+                                    <a class="navbar-brand" href="#">
+                                        <img src="/static/image/FoodieopiaLog.svg" class="logo" alt="Logo">
+                                      </a>
+                                  <div class="footer-about">
+                                      <p>"Foodieopia: Your ultimate destination for seamless and delightful food ordering experiences." </p>
+                                  </div>
+            
+                      </div>
+                      <div class="col-md-3">
+                        <div class="useful-link">
+                          <h2>Links</h2>
+                          
+                          <div class="use-links">
+                                            <li><a href="{% url 'home' %}"   class="f">Home</a></li>
+                                            <li><a href="{% url 'shop' %}"  class="f" >Shop</a></li>
+                                            
+                                            <li><a href="{% url 'about' %}"  class="f" >About</a></li>
+                                            <li><a href="{% url 'login' %}" class="nav-btn-in f"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                          
+                                            <li><a href="{% url 'user_logout' %}" class="nav-btn-out f"><i class="fas fa-times-circle"></i>Logout</a></li>
+                          </div>
+                        </div>
+            
+                      </div>
+                                <div class="col-md-3">
+                                    <div class="social-links">
+                          <h2>Follow Us</h2>
+                          <img src="./assets/images/about/home_line.png" alt="">
+                          <div class="social-icons">
+                            <li><a href=""  class="f"><i class="fa-brands fab fa-facebook-f"></i> Facebook</a></li>
+                            <li><a href=""  class="f"><i class="fa-brands fab fa-instagram"></i> Instagram</a></li>
+                            <li><a href=""  class="f"><i class="fa-brands fab fa-linkedin"></i> Linkedin</a></li>
+                          </div>
+                        </div>
+                                
+            
+                                </div>
+                      <div class="col-md-3">
+                        <div class="address">
+                          <h2>Address</h2>
+                          <img src="./assets/images/about/home_line.png" alt="" class="img-fluid">
+                          <div class="address-links">
+                            <li class="address1"><i class="fa-solid fa-location-dot f"></i>Mitrapark, Ring Rd, Kathmandu 44600</li>
+                              <li><a href="" class="f"><i class="fa-solid fa-phone f"></i> +988 *******</a></li>
+                              <li><a href="" class="f"><i class="fa-solid fa-envelope f"></i> foodieopia024@gmail..com</a></li>
+                          </div>
+                        </div>
+                      </div>
+                              
+                    </div>
+                  </div>
+            
+                </footer>
+  </div>
     <script>
       var MainImg = document.getElementById("MainImg");
       var smallimg = document.getElementsByClassName("small-img");
@@ -209,7 +290,7 @@
         });
         {% endfor%}
     </script>
-    <script src="script.js"></script>
+    <script src="/static/js/shop.js"></script>
     <script>
       {% if messages%}
       {%for message in messages%}
